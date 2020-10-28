@@ -1,0 +1,40 @@
+﻿@using MVCProje_MuratYucedag.Models.Entity
+@model List<TBLUrunler> 
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">URUN ID</th>
+            <th scope="col">URUN ADI</th>
+            <th scope="col">URUN MARKA</th>
+            <th scope="col">URUN KATEGORI</th>
+            <th scope="col">URUN FIYAT</th>
+            <th scope="col">URUN STOK</th>
+            <th scope="col">ISLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+        <tr>
+            <th>@urun.UrunId</th>
+            <td>@urun.UrunAd</td>
+            <td>@urun.UrunMarka</td>
+            <td>@urun.TBLKategoriler.KategoriAd</td>
+            <td>@urun.UrunFiyat</td>
+            <td>@urun.UrunStok</td>
+            <td>
+                <a href="/Urun/UrunSil/@urun.UrunId" class="btn btn-outline-danger" style="margin-left:-20px;">Sil</a>
+                <a href="/Urun/UrunGuncelle/@urun.UrunId" class="btn btn-outline-primary">Guncelle</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Urun/YeniUrun/" class="btn btn-success">Yeni Ürün</a>
+
+

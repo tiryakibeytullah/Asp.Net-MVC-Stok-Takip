@@ -1,0 +1,45 @@
+﻿@model MVCProje_MuratYucedag.Models.Entity.TBLUrunler
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div class="form-group">
+        <label class="text-muted" for="lblUrunAdi">Ürün Adı</label>
+        <input type="text" id="lblUrunAdi" class="form-control" name="UrunAd" placeholder="Ürün adını giriniz.." required="" />
+    </div>
+
+    <div class="form-group">
+        <label class="text-muted" for="lblMarkaAdi">Ürün Marka Adı</label>
+        <input type="text" id="lblMarkaAdi" class="form-control" name="UrunMarka" placeholder="Ürün marka adını giriniz.." required="" />
+    </div>
+
+    <div class="form-group">
+        <label class="text-muted" for="lblKategoriId">Ürün Kategori</label>
+        @Html.DropDownListFor(x => x.TBLKategoriler.KategoriId, (List<SelectListItem>)ViewBag.urunler, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="text-muted" for="lblUrunFiyat">Ürün Fiyat</label>
+        <input type="text" id="lblUrunFiyat" class="form-control" name="UrunFiyat" placeholder="Ürün fiyatını giriniz.." required="" />
+    </div>
+
+    <div class="form-group">
+        <label class="text-muted" for="lblUrunStok">Ürün Stok</label>
+        <input type="text" id="lblUrunStok" class="form-control" name="UrunStok" placeholder="Ürün Stok sayısını giriniz.." required="" />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info">Ürün Ekle</button>
+    </div>
+
+    <div class="form-group">
+        <a href="/Urun/Urunler/">Ürünlere dön..</a>
+    </div>
+
+</form>
+
+
+

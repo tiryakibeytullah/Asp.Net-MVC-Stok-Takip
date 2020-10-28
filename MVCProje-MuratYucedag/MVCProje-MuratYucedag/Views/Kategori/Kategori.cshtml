@@ -1,0 +1,36 @@
+﻿@using MVCProje_MuratYucedag.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLKategoriler>
+
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">KATEGORI ID</th>
+            <th scope="col">KATEGORI ADI</th>
+            <th scope="col">ISLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kategori in Model)
+        {
+            <tr>
+                <th>@kategori.KategoriId</th>
+                <td>@kategori.KategoriAd</td>
+                <td>
+                    <a href="/Kategori/KategoriSil/@kategori.KategoriId" class="btn btn-outline-danger" style="margin-left:-20px;">Sil</a>
+                    <a href="/Kategori/KategoriGuncelle/@kategori.KategoriId" class="btn btn-outline-primary">Guncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager((IPagedList)Model, _sayfaNo => Url.Action("Kategori", new { _sayfaNo }))
+
+<a href="/Kategori/KategoriEkle/" class="btn btn-success">Yeni Kategori</a>

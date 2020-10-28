@@ -1,0 +1,35 @@
+﻿@model MVCProje_MuratYucedag.Models.Entity.TBLMusteriler
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div class="form-group">
+        <label class="text-muted" for="lblMusteriAd">Müşteri Adı</label>
+        @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.MusteriAd, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label class="text-muted" for="lblMusteriSoyad">Müşteri Soyadı</label>
+        @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.MusteriSoyad, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info" id="btnMusteriEkle">Müşteri Ekle</button>
+    </div>
+
+    <div class="form-group">
+        <a href="/Musteriler/Musteriler/">Musterilere dön..</a>
+    </div>
+    <script>
+        $('#btnMusteriEkle').click(function () {
+            alert('Müşteri ekleme işlemi yapıldı..');
+        });
+    </script>
+</form>
+
+

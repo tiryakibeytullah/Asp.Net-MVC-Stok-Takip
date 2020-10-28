@@ -1,0 +1,24 @@
+﻿@model MVCProje_MuratYucedag.Models.Entity.TBLKategoriler
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div class="form-group">
+        <label class="text-muted" for="lblKategoriId">Kategori Adı</label>-->
+        <input type="text" id="lblKategoriId" class="form-control" name="KategoriAd" placeholder="Kategori adını giriniz.." />
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.KategoriAd, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+
+    <div class="form-group">
+        <a href="/Kategori/Kategori/">Kategorilere dön..</a>
+    </div>
+</form>
+
